@@ -2,7 +2,7 @@
 
 Allows players to share items with teammates via right click.
 
-This was originally part of the [Team Healing plugin](https://github.com/dysphie/nmrih-team-healing)
+This was originally part of the [Team Healing plugin](https://github.com/dysphie/nmrih-team-healing).
 
 
 ## Installation
