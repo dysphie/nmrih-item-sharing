@@ -5,7 +5,11 @@ Allows players to share items with teammates via right click.
 ![image](https://user-images.githubusercontent.com/11559683/152640384-70ce6cff-04b4-43ee-b8ed-4337e5d50b28.png)
 
 This was originally part of the [Team Healing plugin](https://github.com/dysphie/nmrih-team-healing).
+### But the game recently added this, what's the difference?
 
+- More lenient search radius, doesn't require being exactly on target.
+- The item is transferred instantly and doesn't fail if the target moves too far.
+- Support for items other than medical.
 
 ## Installation
 - Ensure you have [Sourcemod 1.11](https://wiki.alliedmods.net/Installing_sourcemod) or higher installed
@@ -13,6 +17,8 @@ This was originally part of the [Team Healing plugin](https://github.com/dysphie
 - Grab the latest zip from the [releases](https://github.com/dysphie/nmrih-item-sharing/releases) section.
 - Extract the contents into `addons/sourcemod`
 - Refresh the plugin list (`sm plugins refresh` or `sm plugins load item-sharing` in server console)
+
+
 
 ## Configuration
 
