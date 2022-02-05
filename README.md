@@ -9,6 +9,7 @@ This was originally part of the [Team Healing plugin](https://github.com/dysphie
 
 ## Installation
 - Ensure you have [Sourcemod 1.11](https://wiki.alliedmods.net/Installing_sourcemod) or higher installed
+- If [Team Healing](https://github.com/dysphie/nmrih-team-healing/releases) is installed, ensure you're running version 1.0.5 or higher
 - Grab the latest zip from the [releases](https://github.com/dysphie/nmrih-item-sharing/releases) section.
 - Extract the contents into `addons/sourcemod`
 - Refresh the plugin list (`sm plugins refresh` or `sm plugins load item-sharing` in server console)
