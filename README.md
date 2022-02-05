@@ -49,3 +49,7 @@ This will make the player unable to give or receive items.
 ## Translating
 
 You can translate all printed text via `translations/item-sharing.phrases.txt`. See [Translations](https://wiki.alliedmods.net/Translations_(SourceMod_Scripting)#Distributing_Language_Files)
+
+## Commands
+
+`sm_reload_shareable_items` - Reloads the items config file
