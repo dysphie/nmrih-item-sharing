@@ -10,6 +10,8 @@ This was originally part of the [Team Healing plugin](https://github.com/dysphie
 - More lenient search radius, doesn't require being exactly on target.
 - The item is transferred instantly and doesn't fail if the target moves too far.
 - Support for items other than medical.
+- More visual and auditory clues
+- Ability to play custom sounds on a per-item basis
 
 ## Installation
 - Ensure you have [Sourcemod 1.11](https://wiki.alliedmods.net/Installing_sourcemod) or higher installed
