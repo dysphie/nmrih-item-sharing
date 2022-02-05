@@ -1,0 +1,307 @@
+"Phrases"
+{
+	"Received Item"
+	{
+		"#format" "{1:N},{2:T}"
+		"en"	"{1} gave you {2}"
+	}
+
+	"Gave Item"
+	{
+		"#format" "{1:N},{2:T}"
+		"en"	"You gave {1} {2}"
+	}
+
+	"Target Already Owns"
+	{
+		"#format" "{1:N}"
+		"en"	"{1} already has this item"
+	}
+
+	"Target Is Full"
+	{
+		"#format" "{1:N}"
+		"en"	"{1}'s inventory is full"
+	}
+
+	"Target Opted Out"
+	{
+		"#format" "{1:N}"
+		"en"	"{1} has opted out of this feature"
+	}
+
+	"Disable Item Sharing"
+	{
+		"en"	"Disable item sharing"
+	}
+
+	"Unknown Item"
+	{
+		"en"	"item"
+	}
+
+	"bow_deerhunter"
+	{
+		"en" 	"a bow"
+	}
+
+	"exp_grenade"
+	{
+		"en" 	"a grenade"
+	}
+
+	"exp_molotov"
+	{
+		"en" 	"a molotov"
+	}
+
+	"exp_tnt"
+	{
+		"en" 	"a TNT"
+	}
+
+	"fa_500a"
+	{
+		"en" 	"an M500A"
+	}
+
+	"fa_870"
+	{
+		"en" 	"an R870"
+	}
+
+	"fa_1022"
+	{
+		"en" 	"a Ruger 10/22"
+	}
+
+	"fa_1022_25mag"
+	{
+		"en" 	"a Ruger 10/22"
+	}
+
+	"fa_1911"
+	{
+		"en" 	"a Colt 1911"
+	}
+
+	"fa_cz858"
+	{
+		"en" 	"a CZ858"
+	}
+
+	"fa_fnfal"
+	{
+		"en" 	"an FN FAL"
+	}
+
+	"fa_glock17"
+	{
+		"en" 	"a Glock 17"
+	}
+
+	"fa_jae700"
+	{
+		"en" 	"a JAE-700"
+	}
+
+	"fa_m16a4"
+	{
+		"en" 	"an M16A4"
+	}
+
+	"fa_m16a4_carryhandle"
+	{
+		"en" 	"an M16A4"
+	}
+
+	"fa_m92fs"
+	{
+		"en" 	"an M92FS"
+	}
+
+	"fa_mac10"
+	{
+		"en" 	"a MAC-10"
+	}
+
+	"fa_mkiii"
+	{
+		"en" 	"a Ruger MKIII"
+	}
+
+	"fa_mp5a3"
+	{
+		"en" 	"an MP5A4"
+	}
+
+	"fa_sako85"
+	{
+		"en" 	"a Sako 85"
+	}
+
+	"fa_sako85_ironsights"
+	{
+		"en" 	"a Sako 85"
+	}
+
+	"fa_sks"
+	{
+		"en" 	"an SKS"
+	}
+
+	"fa_sks_nobayo"
+	{
+		"en" 	"an SKS"
+	}
+
+	"fa_superx3"
+	{
+		"en" 	"a Super X3"
+	}
+
+	"fa_sv10"
+	{
+		"en" 	"an SV10"
+	}
+
+	"fa_sw686"
+	{
+		"en" 	"an S&W 686"
+	}
+
+	"fa_winchester1892"
+	{
+		"en" 	"a Winchester 1892"
+	}
+
+	"item_bandages"
+	{
+		"en" 	"bandages"
+	}
+
+	"item_maglite"
+	{
+		"en" 	"a flashlight"
+	}
+
+	"item_pills"
+	{
+		"en" 	"pills"
+	}
+
+	"item_first_aid"
+	{
+		"en" 	"a medkit"
+	}
+
+	"item_gene_therapy"
+	{
+		"en" 	"a gene therapy vial"
+	}
+
+	"item_walkietalkie"
+	{
+		"en" 	"a walkie talkie"
+	}
+
+	"me_abrasivesaw"
+	{
+		"en" 	"an abrasive saw"
+	}
+
+	"me_axe_fire"
+	{
+		"en" 	"a fire axe"
+	}
+
+	"me_bat_metal"
+	{
+		"en" 	"a baseball bat"
+	}
+
+	"me_chainsaw"
+	{
+		"en" 	"a chainsaw"
+	}
+
+	"me_crowbar"
+	{
+		"en" 	"a crowbar"
+	}
+
+	"me_cleaver"
+	{
+		"en" 	"a cleaver"
+	}
+
+	"me_etool"
+	{
+		"en" 	"an e-tool"
+	}
+
+	"me_fubar"
+	{
+		"en" 	"a fubar"
+	}
+
+	"me_hatchet"
+	{
+		"en" 	"a hatchet"
+	}
+
+	"me_kitknife"
+	{
+		"en" 	"a kitchen knife"
+	}
+
+	"me_machete"
+	{
+		"en" 	"a machete"
+	}
+
+	"me_pickaxe"
+	{
+		"en" 	"a pickaxe"
+	}
+
+	"me_pipe_lead"
+	{
+		"en" 	"a pipe"
+	}
+
+	"me_shovel"
+	{
+		"en" 	"a shovel"
+	}
+
+	"me_sledge"
+	{
+		"en" 	"a sledgehammer"
+	}
+
+	"me_wrench"
+	{
+		"en" 	"a wrench"
+	}
+
+	"tool_barricade"
+	{
+		"en" 	"a barricade hammer"
+	}
+
+	"tool_extinguisher"
+	{
+		"en" 	"an extinguisher"
+	}
+
+	"tool_flare_gun"
+	{
+		"en" 	"a flare gun"
+	}
+
+	"tool_welder"
+	{
+		"en" 	"a welder"
+	}
+}
