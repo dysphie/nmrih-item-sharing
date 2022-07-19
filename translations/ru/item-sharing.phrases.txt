@@ -1,0 +1,302 @@
+"Phrases"
+{
+	"Received Item"
+	{
+		"ru"	"{1} передаёт вам {2}"
+	}
+
+	"Gave Item"
+	{
+		"ru"	"Вы передали {1} {2}"
+	}
+
+	"Target Already Owns"
+	{
+		"ru"	"У {1} уже есть этот предмет"
+	}
+
+	"Target Is Full"
+	{
+		"ru"	"Инвентарь {1} полон"
+	}
+
+	"Target Opted Out"
+	{
+		"ru"	"У {1} отключена функция обмена"
+	}
+
+	"Disable Item Sharing"
+	{
+		"ru"	"Отключить обмен предметами"
+	}
+
+	"Unknown Item"
+	{
+		"ru"	"предмет"
+	}
+
+	"bow_deerhunter"
+	{
+		"ru" 	"лук"
+	}
+
+	"exp_grenade"
+	{
+		"ru" 	"гранату"
+	}
+
+	"exp_molotov"
+	{
+		"ru" 	"Молотов"
+	}
+
+	"exp_tnt"
+	{
+		"ru" 	"динамит"
+	}
+
+	"fa_500a"
+	{
+		"ru" 	"M500A"
+	}
+
+	"fa_870"
+	{
+		"ru" 	"R870"
+	}
+
+	"fa_1022"
+	{
+		"ru" 	"Рюгер 10/22"
+	}
+
+	"fa_1022_25mag"
+	{
+		"ru" 	"Рюгер 10/22"
+	}
+
+	"fa_1911"
+	{
+		"ru" 	"Кольт 1911"
+	}
+
+	"fa_cz858"
+	{
+		"ru" 	"CZ858"
+	}
+
+	"fa_fnfal"
+	{
+		"ru" 	"FN FAL"
+	}
+
+	"fa_glock17"
+	{
+		"ru" 	"Глок 17"
+	}
+
+	"fa_jae700"
+	{
+		"ru" 	"JAE-700"
+	}
+
+	"fa_m16a4"
+	{
+		"ru" 	"M16A4"
+	}
+
+	"fa_m16a4_carryhandle"
+	{
+		"ru" 	"M16A4 с ручкой"
+	}
+
+	"fa_m92fs"
+	{
+		"ru" 	"M92FS"
+	}
+
+	"fa_mac10"
+	{
+		"ru" 	"MAC-10"
+	}
+
+	"fa_mkiii"
+	{
+		"ru" 	"Рюгер MKIII"
+	}
+
+	"fa_mp5a3"
+	{
+		"ru" 	"MP5A4"
+	}
+
+	"fa_sako85"
+	{
+		"ru" 	"Зако 85"
+	}
+
+	"fa_sako85_ironsights"
+	{
+		"ru" 	"Зако 85"
+	}
+
+	"fa_sks"
+	{
+		"ru" 	"СКС"
+	}
+
+	"fa_sks_nobayo"
+	{
+		"ru" 	"СКС без штыка"
+	}
+
+	"fa_superx3"
+	{
+		"ru" 	"Super X3"
+	}
+
+	"fa_sv10"
+	{
+		"ru" 	"SV10"
+	}
+
+	"fa_sw686"
+	{
+		"ru" 	"С&В 686"
+	}
+
+	"fa_winchester1892"
+	{
+		"ru" 	"Винчестер 1892"
+	}
+
+	"item_bandages"
+	{
+		"ru" 	"бинты"
+	}
+
+	"item_maglite"
+	{
+		"ru" 	"фонарик"
+	}
+
+	"item_pills"
+	{
+		"ru" 	"таблетки"
+	}
+
+	"item_first_aid"
+	{
+		"ru" 	"аптечку"
+	}
+
+	"item_gene_therapy"
+	{
+		"ru" 	"флакон с вакциной"
+	}
+
+	"item_walkietalkie"
+	{
+		"ru" 	"рацию"
+	}
+
+	"me_abrasivesaw"
+	{
+		"ru" 	"абразивную пилу"
+	}
+
+	"me_axe_fire"
+	{
+		"ru" 	"пожарный топор"
+	}
+
+	"me_bat_metal"
+	{
+		"ru" 	"бейсбольную биту"
+	}
+
+	"me_chainsaw"
+	{
+		"ru" 	"бензопилу"
+	}
+
+	"me_crowbar"
+	{
+		"ru" 	"монтировку"
+	}
+
+	"me_cleaver"
+	{
+		"ru" 	"мясницкий нож"
+	}
+
+	"me_etool"
+	{
+		"ru" 	"E-Tool"
+	}
+
+	"me_fubar"
+	{
+		"ru" 	"Fubar"
+	}
+
+	"me_hatchet"
+	{
+		"ru" 	"топорик"
+	}
+
+	"me_kitknife"
+	{
+		"ru" 	"кухонный нож"
+	}
+
+	"me_machete"
+	{
+		"ru" 	"мачете"
+	}
+
+	"me_pickaxe"
+	{
+		"ru" 	"кирку"
+	}
+
+	"me_pipe_lead"
+	{
+		"ru" 	"трубу"
+	}
+
+	"me_shovel"
+	{
+		"ru" 	"лопату"
+	}
+
+	"me_sledge"
+	{
+		"ru" 	"кувалду"
+	}
+
+	"me_wrench"
+	{
+		"ru" 	"гаечный ключ"
+	}
+
+	"tool_barricade"
+	{
+		"ru" 	"молоток"
+	}
+
+	"tool_extinguisher"
+	{
+		"ru" 	"огнетушитель"
+	}
+
+	"tool_flare_gun"
+	{
+		"ru" 	"ракетницу"
+	}
+
+	"tool_welder"
+	{
+		"ru" 	"сварку"
+	}
+}
