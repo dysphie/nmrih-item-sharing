@@ -18,25 +18,6 @@
 #define IN_DROPWEAPON		   IN_ALT2	  // Button mask when player has drop weapon button pressed.
 
 #define MDL_GIVE_BASE_DURATION 1.2667	 // TODO: Fetch dynamically via CBaseAnimating::SequenceLength
-public Plugin myinfo =
-{
-	name		= "[NMRiH] Item Sharing",
-	author		= "Dysphie",
-	description = "Allows players to share items with teammates via right click",
-	version		= "1.1.0",
-	url			= "https://github.com/dysphie/nmrih-item-sharing"
-};
-
-Cookie	  g_OptOutCookie;
-StringMap g_Shareables;	   // key: classname | value: sound to play
-ConVar	  sm_item_sharing_enabled;
-ConVar	  sm_item_sharing_speed;
-ConVar	  sv_item_give_distance;
-ConVar	  sv_item_give;
-ConVar	  sm_item_sharing_keys;
-ConVar	  sm_item_share_key_behavior;
-
-bool	  g_HasShareable[NMR_MAXPLAYERS] = { false, ... };
 
 enum struct ItemShare
 {
@@ -54,8 +35,6 @@ enum struct ItemShare
 		this.recipientSerial = 0; }
 }
 
-ItemShare g_ShareData[NMR_MAXPLAYERS + 1];
-
 char	  g_ArmNames[][] = {
 	 "default",
 	 "bateman",
@@ -68,11 +47,35 @@ char	  g_ArmNames[][] = {
 	 "badass"
 };
 
+
+ItemShare g_ShareData[NMR_MAXPLAYERS + 1];
 int g_ArmIndex[NMR_MAXPLAYERS + 1];
+bool	  g_WasPressingShare[NMR_MAXPLAYERS + 1] = { false, ... };
+bool	  g_HasShareable[NMR_MAXPLAYERS] = { false, ... };
+
+Cookie	  g_OptOutCookie;
+StringMap g_Shareables;	   // key: classname | value: sound to play
+
+ConVar	  sm_item_sharing_enabled;
+ConVar	  sm_item_sharing_speed;
+ConVar	  sv_item_give_distance;
+ConVar	  sv_item_give;
+ConVar	  sm_item_sharing_keys;
+// ConVar	  sm_item_share_key_behavior;
+
+public Plugin myinfo =
+{
+	name		= "[NMRiH] Item Sharing",
+	author		= "Dysphie",
+	description = "Allows players to share items with teammates via right click",
+	version		= "1.1.0",
+	url			= "https://github.com/dysphie/nmrih-item-sharing"
+};
 
 public void OnClientPutInServer(int client)
 {
 	g_HasShareable[client] = false;
+	g_WasPressingShare[client] = false;
 	g_ArmIndex[client]	   = 0;
 	g_ShareData[client].Init();
 	QueryClientConVar(client, "cl_modelname", ModelNameQueryFinished);
@@ -126,9 +129,9 @@ public void OnPluginStart()
 											  "Speed of the item sharing animation",
 											  _, true, 0.1);
 
-	sm_item_share_key_behavior = CreateConVar("sm_item_share_key_behavior", "0",
-											  "Determines when the item sharing keystrokes will be consumed.\n" ... "0 = Only if the sharing was successful.\n" ... "1 = Always consume",
-											  _, true, 0.0, true, 1.0);
+	// sm_item_share_key_behavior = CreateConVar("sm_item_share_key_behavior", "0",
+	// 										  "Determines when the item sharing keystrokes will be consumed.\n" ... "0 = Only if the sharing was successful.\n" ... "1 = Always consume",
+	// 										  _, true, 0.0, true, 1.0);
 
 	sv_item_give_distance	   = FindConVar("sv_item_give_distance");
 
@@ -288,8 +291,6 @@ void EmitItemSound(int client, const char[] soundEntry)
 	GetGameSoundParams(soundEntry, channel, sound_level, volume, pitch, soundPath, sizeof(soundPath), entity);
 	EmitSoundToAll(soundPath, client, channel, sound_level, SND_CHANGEVOL | SND_CHANGEPITCH, volume, pitch);
 }
-
-bool g_WasPressingShare[NMR_MAXPLAYERS + 1];
 
 public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3], float angles[3], int& weapon, int& subtype, int& cmdnum, int& tickcount, int& seed, int mouse[2])
 {
