@@ -19,6 +19,9 @@
 
 #define MDL_GIVE_BASE_DURATION 1.2667	 // TODO: Fetch dynamically via CBaseAnimating::SequenceLength
 
+#define PLUGIN_DESCRIPTION  "Allows players to share items with teammates via right click"
+#define PLUGIN_VERSION "1.1.0"
+
 enum struct ItemShare
 {
 	bool active;
@@ -67,8 +70,8 @@ public Plugin myinfo =
 {
 	name		= "[NMRiH] Item Sharing",
 	author		= "Dysphie",
-	description = "Allows players to share items with teammates via right click",
-	version		= "1.1.0",
+	description = PLUGIN_DESCRIPTION,
+	version		= PLUGIN_VERSION,
 	url			= "https://github.com/dysphie/nmrih-item-sharing"
 };
 
@@ -112,6 +115,9 @@ public void OnPluginStart()
 	g_Shareables = new StringMap();
 
 	LoadTranslations("item-sharing.phrases");
+
+	CreateConVar("item_sharing_version", PLUGIN_VERSION, PLUGIN_DESCRIPTION,
+    	FCVAR_SPONLY|FCVAR_NOTIFY|FCVAR_DONTRECORD);
 
 	sm_item_sharing_keys = CreateConVar(
 		"sm_item_sharing_keys", "3",
