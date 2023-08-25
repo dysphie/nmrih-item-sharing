@@ -131,7 +131,7 @@ public void OnPluginStart()
 		"Enable or disable item sharing (1 = enabled, 0 = disabled)",
 		_, true, 0.0, true, 1.0);
 
-	sm_item_sharing_speed	   = CreateConVar("sm_item_sharing_speed", "2.0",
+	sm_item_sharing_speed	   = CreateConVar("sm_item_sharing_speed", "1.0",
 											  "Speed of the item sharing animation",
 											  _, true, 0.1);
 
