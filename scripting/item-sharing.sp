@@ -107,9 +107,12 @@ public void OnPluginStart()
 	sv_item_give = FindConVar("sv_item_give");
 
 	// Old versions of the game require we detour CNMRiH_BaseMedicalItem::CanBeGiven
-	if (!sv_item_give)
-	{
+	if (!sv_item_give) {
 		LoadGamedata();
+	} else
+	{
+		sv_item_give.BoolValue = false;
+		sv_item_give.AddChangeHook(OnNativeSharingCvarChanged);
 	}
 
 	g_Shareables = new StringMap();
@@ -158,6 +161,15 @@ public void OnPluginStart()
 			OnClientPutInServer(client);
 			OnWeaponSwitch(client, GetActiveWeapon(client));
 		}
+	}
+}
+
+void OnNativeSharingCvarChanged(ConVar convar, const char[] oldValue, const char[] newValue)
+{
+	if (sm_item_sharing_enabled.BoolValue)
+	{
+		PrintToServer("Forcing sv_item_give to 0 while Item Sharing plugin is enabled");
+		convar.BoolValue = false;
 	}
 }
 
@@ -308,8 +320,6 @@ public Action OnPlayerRunCmd(int client, int& buttons, int& impulse, float vel[3
 	{
 		return Plugin_Continue;
 	}
-
-	// Some code here
 
 	if (!g_HasShareable[client])
 	{
