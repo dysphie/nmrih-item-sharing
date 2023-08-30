@@ -19,8 +19,8 @@
 
 #define MDL_GIVE_BASE_DURATION 1.2667	 // TODO: Fetch dynamically via CBaseAnimating::SequenceLength
 
-#define PLUGIN_DESCRIPTION  "Allows players to share items with teammates via right click"
-#define PLUGIN_VERSION "1.1.0"
+#define PLUGIN_DESCRIPTION	   "Allows players to share items with teammates via right click"
+#define PLUGIN_VERSION		   "1.1.1"
 
 enum struct ItemShare
 {
@@ -38,23 +38,22 @@ enum struct ItemShare
 		this.recipientSerial = 0; }
 }
 
-char	  g_ArmNames[][] = {
-	 "default",
-	 "bateman",
-	 "butcher",
-	 "hunter",
-	 "jive",
-	 "molotov",
-	 "roje",
-	 "wally",
-	 "badass"
+char g_ArmNames[][] = {
+	"default",
+	"bateman",
+	"butcher",
+	"hunter",
+	"jive",
+	"molotov",
+	"roje",
+	"wally",
+	"badass"
 };
 
-
 ItemShare g_ShareData[NMR_MAXPLAYERS + 1];
-int g_ArmIndex[NMR_MAXPLAYERS + 1];
+int		  g_ArmIndex[NMR_MAXPLAYERS + 1];
 bool	  g_WasPressingShare[NMR_MAXPLAYERS + 1] = { false, ... };
-bool	  g_HasShareable[NMR_MAXPLAYERS] = { false, ... };
+bool	  g_HasShareable[NMR_MAXPLAYERS]		 = { false, ... };
 
 Cookie	  g_OptOutCookie;
 StringMap g_Shareables;	   // key: classname | value: sound to play
@@ -65,6 +64,7 @@ ConVar	  sv_item_give_distance;
 ConVar	  sv_item_give;
 ConVar	  sm_item_sharing_keys;
 // ConVar	  sm_item_share_key_behavior;
+ConVar	  sm_item_sharing_voicecmd;
 
 public Plugin myinfo =
 {
@@ -77,9 +77,9 @@ public Plugin myinfo =
 
 public void OnClientPutInServer(int client)
 {
-	g_HasShareable[client] = false;
+	g_HasShareable[client]	   = false;
 	g_WasPressingShare[client] = false;
-	g_ArmIndex[client]	   = 0;
+	g_ArmIndex[client]		   = 0;
 	g_ShareData[client].Init();
 	QueryClientConVar(client, "cl_modelname", ModelNameQueryFinished);
 	SDKHook(client, SDKHook_WeaponSwitchPost, OnWeaponSwitch);
@@ -107,9 +107,11 @@ public void OnPluginStart()
 	sv_item_give = FindConVar("sv_item_give");
 
 	// Old versions of the game require we detour CNMRiH_BaseMedicalItem::CanBeGiven
-	if (!sv_item_give) {
+	if (!sv_item_give)
+	{
 		LoadGamedata();
-	} else
+	}
+	else
 	{
 		sv_item_give.BoolValue = false;
 		sv_item_give.AddChangeHook(OnNativeSharingCvarChanged);
@@ -120,7 +122,7 @@ public void OnPluginStart()
 	LoadTranslations("item-sharing.phrases");
 
 	CreateConVar("item_sharing_version", PLUGIN_VERSION, PLUGIN_DESCRIPTION,
-    	FCVAR_SPONLY|FCVAR_NOTIFY|FCVAR_DONTRECORD);
+				 FCVAR_SPONLY | FCVAR_NOTIFY | FCVAR_DONTRECORD);
 
 	sm_item_sharing_keys = CreateConVar(
 		"sm_item_sharing_keys", "3",
@@ -134,15 +136,17 @@ public void OnPluginStart()
 		"Enable or disable item sharing (1 = enabled, 0 = disabled)",
 		_, true, 0.0, true, 1.0);
 
-	sm_item_sharing_speed	   = CreateConVar("sm_item_sharing_speed", "1.0",
-											  "Speed of the item sharing animation",
-											  _, true, 0.1);
+	sm_item_sharing_speed	 = CreateConVar("sm_item_sharing_speed", "1.0",
+											"Speed of the item sharing animation",
+											_, true, 0.1);
 
 	// sm_item_share_key_behavior = CreateConVar("sm_item_share_key_behavior", "0",
 	// 										  "Determines when the item sharing keystrokes will be consumed.\n" ... "0 = Only if the sharing was successful.\n" ... "1 = Always consume",
 	// 										  _, true, 0.0, true, 1.0);
 
-	sv_item_give_distance	   = FindConVar("sv_item_give_distance");
+	sm_item_sharing_voicecmd = CreateConVar("sm_item_sharing_voicecmd", "1", "Whether players issue voice commands when receiving items");
+
+	sv_item_give_distance	 = FindConVar("sv_item_give_distance");
 
 	AutoExecConfig();
 
@@ -609,7 +613,10 @@ void CompleteGiveAction(int client)
 		SDKHooks_DropWeapon(client, item, recipientPos);
 		AcceptEntityInput(item, "Use", recipient, recipient);
 
-		TryVoiceCommand(recipient, VOICECMD_THANKS);
+		if (sm_item_sharing_voicecmd.BoolValue)
+		{
+			FakeClientCommand(client, "voicecmd 5");	// "Thanks!"
+		}
 
 		// FIXME: Calculate nextattack based on playback rate
 		SetEntPropFloat(client, Prop_Send, "m_flNextAttack", GetGameTime() + 0.84);
@@ -692,27 +699,6 @@ void ForwardVector(const float vPos[3], const float vAng[3], float fDistance, fl
 	vReturn[0] += vDir[0] * fDistance;
 	vReturn[1] += vDir[1] * fDistance;
 	vReturn[2] += vDir[2] * fDistance;
-}
-
-void TryVoiceCommand(int client, int voice)
-{
-	if (!IsVoiceCommandTimerExpired(client))
-	{
-		return;
-	}
-
-	float origin[3];
-	GetClientAbsOrigin(client, origin);
-
-	TE_Start("TEVoiceCommand");
-	TE_WriteNum("_playerIndex", client);
-	TE_WriteNum("_voiceCommand", view_as<int>(voice));
-	TE_SendToAllInRange(origin, RangeType_Audibility);
-}
-
-bool IsVoiceCommandTimerExpired(int client)
-{
-	return RunEntVScriptBool(client, "IsVoiceCommandTimerExpired()");
 }
 
 bool ClientOptedOutSharing(int client)
