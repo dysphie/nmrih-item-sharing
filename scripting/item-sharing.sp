@@ -20,7 +20,7 @@
 #define MDL_GIVE_BASE_DURATION 1.2667	 // TODO: Fetch dynamically via CBaseAnimating::SequenceLength
 
 #define PLUGIN_DESCRIPTION	   "Allows players to share items with teammates via right click"
-#define PLUGIN_VERSION		   "1.1.1"
+#define PLUGIN_VERSION		   "1.1.2"
 
 enum struct ItemShare
 {
@@ -53,7 +53,7 @@ char g_ArmNames[][] = {
 ItemShare g_ShareData[NMR_MAXPLAYERS + 1];
 int		  g_ArmIndex[NMR_MAXPLAYERS + 1];
 bool	  g_WasPressingShare[NMR_MAXPLAYERS + 1] = { false, ... };
-bool	  g_HasShareable[NMR_MAXPLAYERS]		 = { false, ... };
+bool	  g_HasShareable[NMR_MAXPLAYERS + 1]		 = { false, ... };
 
 Cookie	  g_OptOutCookie;
 StringMap g_Shareables;	   // key: classname | value: sound to play
