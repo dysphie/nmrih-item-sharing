@@ -20,7 +20,7 @@
 #define MDL_GIVE_BASE_DURATION 1.2667	 // TODO: Fetch dynamically via CBaseAnimating::SequenceLength
 
 #define PLUGIN_DESCRIPTION	   "Allows players to share items with teammates via right click"
-#define PLUGIN_VERSION		   "1.1.2"
+#define PLUGIN_VERSION		   "1.1.3"
 
 enum struct ItemShare
 {
@@ -615,7 +615,7 @@ void CompleteGiveAction(int client)
 
 		if (sm_item_sharing_voicecmd.BoolValue)
 		{
-			FakeClientCommand(client, "voicecmd 5");	// "Thanks!"
+			FakeClientCommand(recipient, "voicecmd 5");	// "Thanks!"
 		}
 
 		// FIXME: Calculate nextattack based on playback rate
