@@ -1,0 +1,26 @@
+"Games"
+{
+	"nmrih"
+	{
+		"Signatures"
+		{
+			"CNMRiH_BaseMedicalItem::CanBeGiven"
+			{
+				"library"		"server"
+				"windows"		"\x80\xB9\x1E\x06\x00\x00\x00\x75\x2A\xF3\x0F\x10\x81\x20\x06\x00\x00\x0F\x2E\x05"
+				"linux"			"@_ZN22CNMRiH_BaseMedicalItem10CanBeGivenEv"
+			}
+		}
+
+		"Functions"
+        {
+            "CNMRiH_BaseMedicalItem::CanBeGiven"
+            {
+                "signature"  "CNMRiH_BaseMedicalItem::CanBeGiven"
+                "callconv"  "thiscall"
+                "return"  "bool"
+                "this"  "entity"
+            }
+        }
+	}
+}
