@@ -1,3 +1,6 @@
+> [!WARNING]
+> This plugin is unmaintained since Torn Banner's acquisition of the game.
+
 # [NMRiH] Item Sharing
 
 Allows players to share items with teammates via right click.
