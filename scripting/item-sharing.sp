@@ -20,7 +20,7 @@
 #define MDL_GIVE_BASE_DURATION 1.2667	 // TODO: Fetch dynamically via CBaseAnimating::SequenceLength
 
 #define PLUGIN_DESCRIPTION	   "Allows players to share items with teammates via right click"
-#define PLUGIN_VERSION		   "1.1.3"
+#define PLUGIN_VERSION		   "1.1.4"
 
 enum struct ItemShare
 {
@@ -490,7 +490,7 @@ Action TestGiveAction(int client, int target, int item)
 		return Plugin_Continue;
 	}
 
-	if (!IsValidEntity(item) || IsMedicalSpent(item) || GetActiveWeapon(client) != item)
+	if (!IsValidEntity(item) || IsSpent(item) || GetActiveWeapon(client) != item)
 	{
 		return Plugin_Continue;
 	}
@@ -541,6 +541,10 @@ int CreateFakeMedical()
 		DispatchKeyValue(fakeItem, "disablereceiveshadows", "1");
 		DispatchKeyValue(fakeItem, "disableshadows", "1");
 		DispatchKeyValue(fakeItem, "solid", "0");
+
+		DispatchKeyValue(fakeItem, "rendermode", "1");
+		DispatchKeyValue(fakeItem, "renderamt", "0");
+
 		DispatchSpawn(fakeItem);
 	}
 
@@ -594,9 +598,10 @@ void OnFakeViewModelFinishAnim(const char[] output, int fakeItem, int activator,
 	}
 }
 
-bool IsMedicalSpent(int item)
+bool IsSpent(int item)
 {
-	return HasEntProp(item, Prop_Send, "_applied") && GetEntProp(item, Prop_Send, "_applied") != 0;
+	return (HasEntProp(item, Prop_Send, "_applied") && GetEntProp(item, Prop_Send, "_applied") != 0)
+		|| (HasEntProp(item, Prop_Send, "m_bPinPulled") && GetEntProp(item, Prop_Send, "m_bPinPulled") == 1);
 }
 
 void CompleteGiveAction(int client)
